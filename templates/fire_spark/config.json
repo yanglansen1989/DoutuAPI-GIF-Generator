@@ -1,0 +1,46 @@
+{
+    "name": "fire_spark",
+    "description": "火焰闪光特效 (高级版)",
+    "font_size": 52,
+    "y_start": 80,
+    "line_gap": 10,
+    "jitter": [
+        1,
+        3
+    ],
+    "fire_brightness": [
+        90,
+        120
+    ],
+    "stroke_weight_enhance": false,
+    "delay_jitter": true,
+    "glow_layers": [
+        {
+            "color": [
+                255,
+                80,
+                0
+            ],
+            "stroke": 7,
+            "blur": 3.0
+        },
+        {
+            "color": [
+                255,
+                180,
+                50
+            ],
+            "stroke": 4,
+            "blur": 2.0
+        },
+        {
+            "color": [
+                255,
+                255,
+                255
+            ],
+            "stroke": 1,
+            "blur": 0.8
+        }
+    ]
+}
