@@ -1,0 +1,24 @@
+services:
+  gif-generator:
+    container_name: gifapi
+    build: .
+    ports:
+      - "8066:8066"
+    volumes:
+      # 将当前目录挂载进去，方便热更新代码 (修改代码无需重建镜像)
+      - ./:/app
+      # 如果你有字体文件夹，确保它存在，否则可以注释掉下面这行
+      - ./fonts:/app/fonts
+    environment:
+      - TZ=Asia/Shanghai
+      - GIF_GENERATION_CONCURRENCY=2
+      - GIF_RESPONSE_CACHE_ITEMS=128
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8066/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    # 服务器默认关闭热重载，避免文件监听和重复进程带来的额外负载
+    command: uvicorn main:app --host 0.0.0.0 --port 8066

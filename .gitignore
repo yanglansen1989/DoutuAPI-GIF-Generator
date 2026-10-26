@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+.uv-cache/
+.uv-python/
+env/
+venv/
+.idea/
+.vscode/
+*.log
+text_to_slack_gif/
