@@ -2,6 +2,7 @@
 import asyncio
 import os
 from collections import OrderedDict
+from enum import Enum
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.responses import Response, FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -38,6 +39,12 @@ _generation_semaphore = asyncio.Semaphore(GENERATION_CONCURRENCY)
 _response_cache = OrderedDict()
 
 
+class ThemeEnum(str, Enum):
+    transparent = "transparent"
+    dark = "dark"
+    light = "light"
+
+
 def _get_cached_response(cache_key):
     if RESPONSE_CACHE_ITEMS <= 0:
         return None
@@ -71,7 +78,7 @@ async def get_gif(
     delay: int = Query(100, ge=20),
     color: str = Query(None, description="Color name, hex code, effect ('rainbow', 'wave', 'neon', etc), or template ('template:fire_spark')"),
     width_pixels: int = Query(500, ge=1, le=1200),
-    theme: str = Query("transparent", enum=["transparent", "dark", "light"]),
+    theme: ThemeEnum = Query(ThemeEnum.transparent),
     wrap: bool = Query(False, description="Auto wrap text to new lines if it exceeds width. Disables scrolling."),
     font: str = Query(None, description="Font filename from fonts/ directory (e.g., 'jiying.ttf'). If not specified, a random font will be selected."),
     mask_color: str = Query(None, description="Custom color for mask effects (hex like '%23FF5733' or color name like 'red'). Only works with mask effects (fire_mask, lightning_mask, etc)."),
@@ -129,7 +136,7 @@ async def get_gif(
                 font_path_param = font
 
         cache_key = (
-            text, frame_count, delay, color, width_pixels, theme, wrap,
+            text, frame_count, delay, color, width_pixels, theme.value, wrap,
             font_path_param, mask_color, adaptive_canvas, preview
         )
         response_headers = (
@@ -182,7 +189,7 @@ async def get_gif(
                     text_color_param=color,
                     mask_color_param=mask_color,
                     width_pixels=width_pixels,
-                    theme=theme,
+                    theme=theme.value,
                     auto_wrap=wrap,
                     use_adaptive_canvas=adaptive_canvas,
                     fast_preview=preview
