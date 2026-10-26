@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>霓虹 GIF 生成器</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>霓虹 <span class="highlight">GIF</span> 生成器</h1>
+            <p>瞬间生成赛博朋克风格文字 GIF</p>
+        </header>
+
+        <main>
+            <section class="controls">
+                <div class="control-group">
+                    <label for="text-input">文本内容</label>
+                    <textarea id="text-input" rows="3" placeholder="在此输入文字...">Hello World</textarea>
+                </div>
+
+                <div class="control-row">
+                    <div class="control-group">
+                        <label for="theme-select">主题</label>
+                        <select id="theme-select">
+                            <option value="transparent">透明 (Transparent)</option>
+                            <option value="dark" selected>深色 (Dark)</option>
+                            <option value="light">浅色 (Light)</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="effect-select">特效</label>
+                        <select id="effect-select">
+                            <option value="">无特效 (None)</option>
+                            <option value="rainbow">彩虹 (Rainbow)</option>
+                            <option value="rainbow_flow">彩虹流动 (Flow)</option>
+                            <option value="wave">波浪 (Wave)</option>
+                            <option value="bounce">弹跳 (Bounce)</option>
+                            <option value="neon">霓虹 (Neon)</option>
+                            <option value="glitch">故障 (Glitch)</option>
+                            <option value="shake">整体抖动 (Shake)</option>
+                            <option value="extreme_shake">剧烈抖动 (Extreme Shake)</option>
+            <option value="zoom">💗 心跳缩放 (Zoom)</option>
+            <option value="zoom_slide">💨 滑动缩放 (Zoom Slide)</option>
+            <option value="roller_coaster">🎢 过山车滑行 (Roller Coaster)</option>
+            <option value="fly_zoom">🎯 飞字缩放 (Fly Zoom)</option>
+            <option value="spray">喷发 (Spray)</option>
+                            <option value="scroll">滚动 (Scroll)</option>
+                            <option value="breathing">呼吸 (Breathing)</option>
+                            <option value="typewriter">打字机 (Typewriter)</option>
+                            <option value="marquee">跑马灯 (Marquee)</option>
+                            <option value="dissolve">像素溶解 (Dissolve)</option>
+                            <option value="matrix">黑客帝国 (Matrix)</option>
+                            <option value="neon_flash">霓虹闪烁 (Neon Flash)</option>
+                            <option value="electric_bg">电火花 (Electric)</option>
+                            <option value="glitch_bg">故障艺术 (Glitch BG)</option>
+                            <option value="shining">流光字体 (Shining)</option>
+                            <option value="rainbow_mask">🎭 彩虹蒙版 (Rainbow Mask)</option>
+                            <option value="shining_mask">🎭 流光蒙版 (Shining Mask)</option>
+                            <option value="emoji_mask">🎭 表情蒙版 (Emoji Mask)</option>
+                            <option value="matrix_mask">🎭 数字雨蒙版 (Matrix Mask)</option>
+                            <option value="fire_mask">🎭 火焰蒙版 (Fire Mask)</option>
+                            <option value="stars_mask">🎭 星空蒙版 (Stars Mask)</option>
+                            <option value="snow_mask">🎭 雪花蒙版 (Snow Mask)</option>
+                            <option value="hearts_mask">🎭 爱心蒙版 (Hearts Mask)</option>
+                            <option value="cute_streamer_mask">💖 流光字体 (Cute Streamer)</option>
+                            <option value="particles_mask">🎭 粒子爆炸蒙版 (Particles Mask)</option>
+                            <option value="music_mask">🎭 音符蒙版 (Music Mask)</option>
+                            <option value="ripple_mask">🎭 水波纹蒙版 (Ripple Mask)</option>
+                            <option value="lightning_mask">🎭 闪电蒙版 (Lightning Mask)</option>
+                            <option value="smoke_mask">🎭 烟雾蒙版 (Smoke Mask)</option>
+                            <option value="neon_lines_mask">🎭 霓虹灯条蒙版 (Neon Lines Mask)</option>
+                            <option value="code_mask">🎭 代码雨蒙版 (Code Mask)</option>
+                            <option value="floating_text">🎈 漂浮字 (Floating Text)</option>
+                            <option value="floating_text_clear">🎈 漂浮字透明 (Floating Clear)</option>
+                            <option value="spiral_3d">🌀 螺旋3D旋转 (Spiral 3D)</option>
+                            <option value="spotlight">🔦 暗夜聚光灯 (Spotlight Reveal)</option>
+                            <option value="star_wars">🚀 星际史诗透视 (Star Wars 3D)</option>
+                            <option value="ghost_trails">👻 流萤残影 (Cyber Ghost Trails)</option>
+                            <option value="ktv_sweep">🎤 KTV卡拉OK扫光 (KTV Sweep)</option>
+                            <option value="neon_flicker">💡 霓虹灯故障闪烁 (Neon Flicker)</option>
+                            <option value="chromatic_glitch">📺 赛博RGB色差分离 (Chromatic Glitch)</option>
+                            <option value="cinematic_pop">🎬 电影级果冻弹入 (Cinematic Pop)</option>
+                            <option value="highlighter">🖍️ 马克笔划线高亮 (Highlighter Tracking)</option>
+                            <option value="prism_sweep">🔷 棱镜扫光 (Prism Sweep)</option>
+                            <option value="laser_scan">🔴 激光扫描 (Laser Scan)</option>
+                            <option value="echo_shadow">🌈 回声残影 (Echo Shadow)</option>
+                            <option value="pixel_burst">🧊 像素爆散 (Pixel Burst)</option>
+                            <option value="hologram_scan">🧬 全息扫描 (Hologram Scan)</option>
+                            <option value="plasma_wave">🟣 等离子流体 (Plasma Wave)</option>
+                            <option value="thunder_crack">⚡ 雷裂闪电 (Thunder Crack)</option>
+                            <option value="vortex_warp">🌀 漩涡扭曲 (Vortex Warp)</option>
+                            <option value="comet_trail">☄️ 彗星拖尾 (Comet Trail)</option>
+                            <option value="chrome_glass">🪩 液态铬玻璃 (Chrome Glass)</option>
+                            <option value="aurora_ribbon">🌌 极光丝带 (Aurora Ribbon)</option>
+                            <option value="strobe_cut">✂️ 频闪切片 (Strobe Cut)</option>
+                            <option value="sandstorm">🏜️ 沙暴聚散 (Sandstorm)</option>
+                            <option value="magnetic_flip">🧲 磁场翻折 (Magnetic Flip)</option>
+                            <option value="ink_bleed">🖋️ 墨水晕染 (Ink Bleed)</option>
+                            <option value="solar_flare">☀️ 太阳耀斑 (Solar Flare)</option>
+                            <option value="pulse_ring">◎ 脉冲环 (Pulse Ring)</option>
+                            <option value="electric_outline">⚡ 电光描边 (Electric Outline)</option>
+                            <option value="photon_stream">✨ 光子流 (Photon Stream)</option>
+                            <option value="neon_saber">🗡️ 霓虹光剑 (Neon Saber)</option>
+                            <option value="text_burn">🔥 燃烧字 (Text Burn)</option>
+                            <option value="diamond_sparkle">💎 钻石闪耀 (Diamond Sparkle)</option>
+                            <option value="liquid_fill">🌊 液体填充 (Liquid Fill)</option>
+                            <option value="text_split">⚡ 文字分裂 (Text Split)</option>
+                            <option value="jelly_wobble">🫧 果冻摇摆 (Jelly Wobble)</option>
+                            <option value="heart_bloom">❤️ 心花怒放 (Heart Bloom)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group" id="color-group">
+                    <label for="color-input">颜色 (十六进制或名称)</label>
+                    <input type="text" id="color-input" placeholder="例如: #00ffcc 或 cyan">
+                    <small style="color: #888; font-size: 0.8em; display: block; margin-top: 5px;">呼吸灯模式下格式:
+                        #color1:#color2</small>
+                </div>
+
+                <div class="control-group">
+                    <label>参数设置</label>
+                    <div class="slider-control">
+                        <span>宽度: <span id="width-val">500</span>px</span>
+                        <input type="range" id="width-input" min="100" max="1000" value="500">
+                    </div>
+                    <div class="slider-control">
+                        <span>帧数: <span id="frames-val">20</span></span>
+                        <input type="range" id="frames-input" min="1" max="60" value="20">
+                    </div>
+                    <div class="slider-control">
+                        <span>延迟: <span id="delay-val">50</span>ms</span>
+                        <input type="range" id="delay-input" min="20" max="500" value="50">
+                    </div>
+                </div>
+
+                <div class="control-group checkbox-group">
+                    <input type="checkbox" id="wrap-input">
+                    <label for="wrap-input">自动换行</label>
+                </div>
+
+                <div class="control-group checkbox-group">
+                    <input type="checkbox" id="adaptive-canvas-input">
+                    <label for="adaptive-canvas-input">高清自适应画布</label>
+                </div>
+
+                <button id="download-btn" class="cyber-btn">下载高清 GIF</button>
+            </section>
+
+            <section class="preview">
+                <div class="preview-box">
+                    <div class="loading-overlay" id="loading">
+                        <div class="spinner"></div>
+                    </div>
+                    <img id="gif-preview" src="" alt="GIF 预览">
+                </div>
+                <div class="url-display">
+                    <input type="text" id="url-input" readonly>
+                    <button id="copy-btn">复制链接</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
