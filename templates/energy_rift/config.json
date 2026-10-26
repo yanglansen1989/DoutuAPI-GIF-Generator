@@ -1,0 +1,75 @@
+{
+    "name": "energy_rift",
+    "description": "能量裂变特效 - 赛博科技风",
+    "style": "energy_rift",
+    "font_size": 54,
+    "y_start": 80,
+    "line_gap": 12,
+    "jitter": [
+        1,
+        2
+    ],
+    "fire_brightness": [
+        95,
+        130
+    ],
+    "stroke_weight_enhance": true,
+    "delay_jitter": true,
+    "energy_color": [
+        80,
+        180,
+        255
+    ],
+    "edge_color": [
+        220,
+        240,
+        255
+    ],
+    "burst_count": [
+        3,
+        7
+    ],
+    "edge_sharp": 1.6,
+    "flicker_speed": [
+        4,
+        6
+    ],
+    "glow_layers": [
+        {
+            "color": [
+                20,
+                100,
+                200
+            ],
+            "stroke": 8,
+            "blur": 4.0
+        },
+        {
+            "color": [
+                80,
+                180,
+                255
+            ],
+            "stroke": 5,
+            "blur": 2.5
+        },
+        {
+            "color": [
+                200,
+                230,
+                255
+            ],
+            "stroke": 2,
+            "blur": 1.2
+        },
+        {
+            "color": [
+                255,
+                255,
+                255
+            ],
+            "stroke": 1,
+            "blur": 0.5
+        }
+    ]
+}
